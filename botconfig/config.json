@@ -1,6 +1,6 @@
 {
     "token":"bot token",
-    "prefix":"!",
+    "prefix":"prefix",
     "ownerid":"owner id",
     "client_id":"bot client id"
 }
