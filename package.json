@@ -1,0 +1,32 @@
+{
+  "name": "discordjs-radiobot-v13",
+  "version": "1.0.0",
+  "description": " Professional Discordjs Radio Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hesawmgh1098/discordjs-radiobot-v13.git"
+  },
+  "keywords": [
+    "radio",
+    "discordjs"
+  ],
+  "author": "hesam toovins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hesawmgh1098/discordjs-radiobot-v13/issues"
+  },
+  "homepage": "https://github.com/hesawmgh1098/discordjs-radiobot-v13#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.7.5",
+    "beta.db": "^3.0.2",
+    "discord.js": "^13.5.1",
+    "ffmpeg-static": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "libsodium-wrappers": "^0.7.9",
+    "opusscript": "^0.0.8"
+  }
+}
