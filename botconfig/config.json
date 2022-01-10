@@ -1,6 +1,6 @@
 {
-    "token":"ODk4ODQwMzQyODUyNDIzNjgx.YWqETQ.OjkiLaAd6z3RpyFepDGkNeAFHUw",
+    "token":"bot token",
     "prefix":"!",
-    "ownerid":"556854910805737478",
-    "client_id":""
+    "ownerid":"owner id",
+    "client_id":"bot client id"
 }
