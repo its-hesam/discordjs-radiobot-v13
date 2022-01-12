@@ -37,6 +37,13 @@ Run the robot `node index.js` then using
     "client_id":"bot client id"
 }
 ```
+***
+# Intent
+**Dont Forgot Enable message content intent**
+<img src="https://media.discordapp.net/attachments/923616646319439882/930731010809802803/unknown.png" />
+
+***
+# Run On replit
 
 ***
 ## 🤝 Contributing
