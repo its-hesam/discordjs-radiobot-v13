@@ -57,6 +57,7 @@ client.on("messageCreate", message =>{
 
     //set role for some cmd s 
  if(command == "setrole"){
+	  if (message.author.id !== `${ownerid}`) return message.reply(`:x: **You Dont Have permission to use this command!** `);
         if(!args[0]) return message.reply(`:x: **You forgot to enter a Role Id!**`)
         db.set("role" , args[0])
         db.set("Guildid" , message.guild.id)
@@ -97,6 +98,7 @@ client.on("messageCreate", message =>{
    }
 // disconnect bot 
      if(command == `dc`){
+	      if(message.author.id !== ownerid && !message.member.roles.cache.has(role))return message.reply(`:x: **You Dont Have permission to use this command! , you need <@&${role}> role**`)
     connection.destroy();
     message.reply('✅ **Bot was successfully Disconnected** ')
      }
