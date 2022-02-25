@@ -1,6 +1,16 @@
 {
-    "token":"bot token",
+    "tokenBot1":"bot token",
+    "tokenBot2":"bot token",
+    "tokenBot3":"bot token",
+    "tokenBot4":"bot token",
+    "tokenBot5":"bot token",
     "prefix":"prefix",
     "ownerid":"owner id",
-    "client_id":"bot client id"
+    "client_id1":"bot client id",
+
+    "channelToJoinbot1": "channel id",
+    "channelToJoinbot2": "channel id",
+    "channelToJoinbot3": "channel id",
+    "channelToJoinbot4": "channel id",
+    "channelToJoinbot5": "channel id"
 }

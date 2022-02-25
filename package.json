@@ -26,7 +26,7 @@
   "dependencies": {
     "@discordjs/voice": "^0.7.5",
     "beta.db": "^3.0.2",
-    "discord.js": "^13.5.1",
+    "discord.js": "^13.6.0",
     "ffmpeg-static": "^4.4.1",
     "fs": "^0.0.1-security",
     "libsodium-wrappers": "^0.7.9",
