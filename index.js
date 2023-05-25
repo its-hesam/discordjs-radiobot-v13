@@ -1,21 +1,23 @@
-const { Client, Intents, MessageEmbed , version  } = require('discord.js');
+const Discord = require('discord.js');
 const voiceDiscord = require(`@discordjs/voice`)
-const client = new Client({ intents: [
-    Intents.FLAGS.GUILDS,
-	Intents.FLAGS.GUILD_MESSAGES,
-	Intents.FLAGS.GUILD_MEMBERS,
-	Intents.FLAGS.GUILD_VOICE_STATES,] });
+const client = new Discord.Client({ intents: [
+  Discord.GatewayIntentBits.Guilds,
+	Discord.GatewayIntentBits.GuildMessages,
+	Discord.GatewayIntentBits.GuildMembers,
+	Discord.GatewayIntentBits.GuildVoiceStates
+  ] });
 const {token , prefix,ownerid } = require('./botconfig/config.json');
 const { Database } = require('beta.db');
+const fs = require("fs");
 const db = new Database("./db/role.json")
 const radio = require(`./botconfig/radiostation.json`)
 
 client.once("ready", () =>{
     console.log(`Logged in as ${client.user.tag}`)
-    client.user.setActivity('Coded By : Hesam TooVinS', { type: 'WATCHING' }); //You can change type to : LISTENING , COMPETING , PLAYING 
+    client.user.setActivity('Coded By : Hesam TooVinS', { type: Discord.ActivityType.Listening }); //You can change type to : LISTENING , COMPETING , PLAYING 
 })
 
-client.on("messageCreate", message =>{
+client.on(Discord.Events.MessageCreate, (message) =>{
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(' ');
@@ -23,7 +25,7 @@ client.on("messageCreate", message =>{
     
     //help menu 
     if(command === "help"){
-        const helpembed = new MessageEmbed()
+        const helpembed = new Discord.EmbedBuilder()
         .setTitle("📻 Help menu")
         .addFields(
             { name: `${prefix}radio`, value: 'play radio ', inline: true  },
@@ -35,16 +37,15 @@ client.on("messageCreate", message =>{
         )
         .setThumbnail(`https://play-lh.googleusercontent.com/oV1AVbkOV2M7rqOAENeuNAnBL6ftRpECFDiiKU4w19tX_rTHTnwJRrPcJ2yy270taMU`)
         .setFooter(`Requested By ${message.author.username}` , message.author.displayAvatarURL({ format: 'png', dynamic: true }))
-        .setColor('GREEN')
+        .setColor('Green')
         .setTimestamp()
         message.reply({embeds :[helpembed]})
     }
 
     // radio list you can pick radio id and play
     if(command == `radiolist`){
-        const fs = require("fs")
        fs.readFile('./botconfig/radioid.json', 'utf8', function(err, contents) {
-            const radioidembed = new MessageEmbed()
+            const radioidembed = new Discord.EmbedBuilder()
           .setTitle("Radio Id List")
           .setDescription('```json\n' + contents + '\n```')
           .setFooter(`Requested By ${message.author.username}` , message.author.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -98,13 +99,14 @@ client.on("messageCreate", message =>{
    }
 // disconnect bot 
      if(command == `dc`){
-	      if(message.author.id !== ownerid && !message.member.roles.cache.has(role))return message.reply(`:x: **You Dont Have permission to use this command! , you need <@&${role}> role**`)
+      const role = db.get('role')
+	    if(message.author.id !== ownerid && !message.member.roles.cache.has(role))return message.reply(`:x: **You Dont Have permission to use this command! , you need <@&${role}> role**`)
     connection.destroy();
     message.reply('✅ **Bot was successfully Disconnected** ')
      }
 // bot stats
    if(command == `stats`){
-    const statsembed = new MessageEmbed()
+    const statsembed = new Discord.EmbedBuilder()
     .addFields(
         {
           name: ":robot: Client",
@@ -130,7 +132,7 @@ client.on("messageCreate", message =>{
           },
           {
             name: ":blue_book: Discord.js",
-            value: `┕\`v${version}\``,
+            value: `┕\`v${Discord.version}\``,
             inline: true,
           },
           {
@@ -139,8 +141,8 @@ client.on("messageCreate", message =>{
             inline: true,
           },
       )
-      .setColor("GREEN")
-      .setFooter(`Requested By ${message.author.username}` , message.author.displayAvatarURL({ format: 'png', dynamic: true }))
+      .setColor("Green")
+      .setFooter(`Requested By ${message.author.username}` , message.author.displayAvatarURL({ extension: 'png', dynamic: true }))
       .setTimestamp()
   
       message.reply({ embeds: [statsembed]});
@@ -151,5 +153,5 @@ client.login(token)
 
 /**********************************************************
  * @INFO
- * Bot Coded by ◈ hesam TooVinS#5284| https://discord.gg/Jhnqm5BHnt
+ * Bot Coded by hesam TooVinS#5284| https://discord.gg/Jhnqm5BHnt
  *********************************************************/
