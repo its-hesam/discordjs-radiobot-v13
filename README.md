@@ -4,13 +4,13 @@
 
 
 ## 🔧 Requirements
-1. Discord Bot Token And Client Id **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)**
-2. Node.js v16.0.0 or newer
+1. Discord Bot Token **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)**
+2. Node.js v20.0.0 or newer
 ***
 ## Features:
 ✓ Super fast & High Quality 
 
-✓ Has more than 10 radio stations
+✓ Has more than 15 radio stations
 
 ✓ Set role system
 
@@ -27,23 +27,19 @@ First of all you need to <a href="https://nodejs.org/en/"> Node.js </a>
 Install the `npm install` modules in your terminal before using
 <br> <br>
 Run the robot `node index.js` then using
-<br> <br>**🔴 Do not forget to enter the account token in `config.json`🔴**
+<br> <br>**🔴 Do not forget to Put the bot token in `config.json`🔴**
 
 ```json
 {
     "token":"bot token",
     "prefix":"!",
     "ownerid":"owner id",
-    "client_id":"bot client id"
 }
 ```
 ***
 # Intent
 **Dont Forgot Enable message content intent**
 <img src="https://media.discordapp.net/attachments/923616646319439882/930731010809802803/unknown.png" />
-
-***
-# Run On replit
 
 ***
 ## 🤝 Contributing
